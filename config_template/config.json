@@ -51,7 +51,6 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "direct",
         "{all}"
       ]
     },
