@@ -6,19 +6,26 @@
   "dns": {
     "servers": [
       {
-        "tag": "remote",
-        "address": "https://1.1.1.1/dns-query"
+        "tag": "google",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "resolver"
       },
       {
         "tag": "local",
-        "address": "https://223.6.6.6/dns-query",
+        "address": "https://dns.alidns.com/dns-query",
+        "address_resolver": "resolver",
+        "detour": "direct"
+      },
+      {
+        "tag": "resolver",
+        "address": "114.114.114.114",
         "detour": "direct"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "local"
+        "server": "resolver"
       },
       {
         "clash_mode": "Direct",
@@ -26,11 +33,26 @@
       },
       {
         "clash_mode": "Global",
-        "server": "remote"
+        "server": "google"
       },
       {
-        "rule_set": "geosite-cn",
+        "rule_set": "geosite-geolocation-cn",
         "server": "local"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "google",
+        "client_subnet": "1.0.8.0/24"
       }
     ]
   },
@@ -102,13 +124,12 @@
             "protocol": "stun"
           }
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "rule_set": [
           "geoip-cn",
-          "geosite-cn"
+          "geosite-geolocation-cn"
         ],
         "outbound": "direct"
       }
@@ -123,9 +144,16 @@
       },
       {
         "type": "remote",
-        "tag": "geosite-cn",
+        "tag": "geosite-geolocation-cn",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-geolocation-!cn",
+        "format": "binary",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       }
     ],
