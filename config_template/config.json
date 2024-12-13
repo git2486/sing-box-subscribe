@@ -77,14 +77,25 @@
   },
   "inbounds": [
     {
-      "type": "mixed",
-      "listen": "::",
-      "listen_port": 7080
+      "type": "tun",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 8080
+        }
+      }
     },
     {
-      "type": "tproxy",
+      "type": "mixed",
       "listen": "::",
-      "listen_port": 1536
+      "listen_port": 8080
     }
   ],
   "outbounds": [
@@ -178,7 +189,9 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       }
-    ]
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
   },
   "experimental": {
     "cache_file": {
@@ -187,8 +200,7 @@
       "store_rdrc": true
     },
     "clash_api": {
-      "external_controller": "0.0.0.0:9999",
-      "external_ui": "ui"
+      "external_controller": "127.0.0.1:9090"
     }
   }
 }
