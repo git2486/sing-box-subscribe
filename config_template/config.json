@@ -8,24 +8,28 @@
       {
         "tag": "google",
         "address": "https://dns.google/dns-query",
-        "address_resolver": "resolver"
+        "address_resolver": "resolve"
       },
       {
         "tag": "local",
         "address": "https://dns.alidns.com/dns-query",
-        "address_resolver": "resolver",
+        "address_resolver": "resolve",
         "detour": "direct"
       },
       {
-        "tag": "resolver",
+        "tag": "resolve",
         "address": "114.114.114.114",
         "detour": "direct"
+      },
+      {
+        "tag": "remote",
+        "address": "fakeip"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "resolver"
+        "server": "resolve"
       },
       {
         "clash_mode": "Direct",
@@ -53,18 +57,34 @@
         ],
         "server": "google",
         "client_subnet": "1.0.8.0/24"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "remote",
+        "rewrite_ttl": 0
       }
-    ]
+    ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "strategy": "prefer_ipv4",
+    "independent_cache": true
   },
   "inbounds": [
     {
-      "type": "tun",
-      "address": [
-        "172.18.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
-      "auto_route": true,
-      "strict_route": true
+      "type": "mixed",
+      "listen": "::",
+      "listen_port": 7080
+    },
+    {
+      "type": "tproxy",
+      "listen": "::",
+      "listen_port": 1536
     }
   ],
   "outbounds": [
@@ -73,8 +93,10 @@
       "tag": "select",
       "outbounds": [
         "auto",
+        "direct",
         "{all}"
-      ]
+      ],
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
@@ -156,17 +178,17 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       }
-    ],
-    "auto_detect_interface": true,
-    "override_android_vpn": true
+    ]
   },
   "experimental": {
     "cache_file": {
       "enabled": true,
+      "store_fakeip": true,
       "store_rdrc": true
     },
     "clash_api": {
-      "external_controller": "127.0.0.1:9090"
+      "external_controller": "0.0.0.0:9999",
+      "external_ui": "ui"
     }
   }
 }
