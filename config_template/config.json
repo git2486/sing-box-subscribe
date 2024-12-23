@@ -12,7 +12,7 @@
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
-      "external_ui_download_url": "https://ghproxy.net/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_url": "https://github.moeyy.xyz/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
       "external_ui_download_detour": "direct"
     }
   },
@@ -44,6 +44,14 @@
       {
         "clash_mode": "Global",
         "server": "google"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "rule_set": "geosite-cn",
+        "server": "remote"
       },
       {
         "rule_set": "geosite-cn",
@@ -99,7 +107,7 @@
     },
     {
       "type": "mixed",
-      "listen": "127.0.0.1",
+      "listen": "::",
       "listen_port": 7890
     }
   ],
@@ -354,91 +362,91 @@
         "tag": "geosite-openai",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-youtube",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-youtube.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-youtube.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-google",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-google",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-github",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-telegram",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-telegram",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-telegram.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-telegram.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-twitter",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-twitter.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-twitter.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-twitter",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-twitter.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-twitter.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-microsoft",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-microsoft.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-microsoft.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
         "download_detour": "direct"
       }
     ]
