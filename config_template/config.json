@@ -12,7 +12,7 @@
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
-      "external_ui_download_url": "https://github.moeyy.xyz/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_url": "https://dgithub.xyz/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
       "external_ui_download_detour": "direct"
     }
   },
@@ -291,35 +291,35 @@
         "tag": "geosite-openai",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
+        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-google-gemini",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google-gemini.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geoip-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
+        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-google-gemini.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
+        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
         "download_detour": "direct"
       }
     ]
