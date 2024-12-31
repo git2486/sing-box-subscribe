@@ -12,7 +12,7 @@
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
-      "external_ui_download_url": "https://dgithub.xyz/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_url": "https://ghproxy.cn/github.com/MetaCubeX/metacubexd/archive/gh-pages.zip",
       "external_ui_download_detour": "direct"
     }
   },
@@ -116,8 +116,8 @@
       "tag": "select",
       "type": "selector",
       "outbounds": [
-        "auto",
         "all",
+        "auto",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -135,6 +135,14 @@
       ]
     },
     {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "interval": "6m"
+    },
+    {
       "tag": "AI",
       "type": "selector",
       "outbounds": [
@@ -148,7 +156,7 @@
     },
     {
       "tag": "HongKong",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -159,11 +167,12 @@
             "🇭🇰|HK|hk|香港|港|HongKong"
           ]
         }
-      ]
+      ],
+      "interval": "6m"
     },
     {
       "tag": "TaiWan",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -174,11 +183,12 @@
             "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
           ]
         }
-      ]
+      ],
+      "interval": "6m"
     },
     {
       "tag": "Singapore",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -189,11 +199,12 @@
             "🇸🇬|SG|sg|新加坡|狮|Singapore"
           ]
         }
-      ]
+      ],
+      "interval": "6m"
     },
     {
       "tag": "Japan",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -204,11 +215,12 @@
             "🇯🇵|JP|jp|日本|日|Japan"
           ]
         }
-      ]
+      ],
+      "interval": "6m"
     },
     {
       "tag": "America",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -219,11 +231,12 @@
             "🇺🇸|US|us|美国|美|United States"
           ]
         }
-      ]
+      ],
+      "interval": "6m"
     },
     {
       "tag": "Others",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -234,15 +247,8 @@
             "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"
           ]
         }
-      ]
-    },
-    {
-      "tag": "auto",
-      "type": "urltest",
-      "outbounds": [
-        "{all}"
       ],
-      "interval": "10m"
+      "interval": "6m"
     },
     {
       "type": "direct",
@@ -291,35 +297,35 @@
         "tag": "geosite-openai",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
+        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-google-gemini",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-google-gemini.srs",
+        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google-gemini.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
+        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
+        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.dgithub.xyz/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
+        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
         "download_detour": "direct"
       }
     ]
