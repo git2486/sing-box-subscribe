@@ -139,19 +139,6 @@
       "type": "urltest",
       "outbounds": [
         "{all}"
-      ],
-      "interval": "6m"
-    },
-    {
-      "tag": "AI",
-      "type": "selector",
-      "outbounds": [
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others",
-        "select"
       ]
     },
     {
@@ -167,8 +154,7 @@
             "🇭🇰|HK|hk|香港|港|HongKong"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "tag": "TaiWan",
@@ -183,8 +169,7 @@
             "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "tag": "Singapore",
@@ -199,8 +184,7 @@
             "🇸🇬|SG|sg|新加坡|狮|Singapore"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "tag": "Japan",
@@ -215,8 +199,7 @@
             "🇯🇵|JP|jp|日本|日|Japan"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "tag": "America",
@@ -231,8 +214,7 @@
             "🇺🇸|US|us|美国|美|United States"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "tag": "Others",
@@ -247,8 +229,7 @@
             "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"
           ]
         }
-      ],
-      "interval": "6m"
+      ]
     },
     {
       "type": "direct",
@@ -279,13 +260,6 @@
       },
       {
         "rule_set": [
-          "geosite-openai",
-          "geosite-google-gemini"
-        ],
-        "outbound": "AI"
-      },
-      {
-        "rule_set": [
           "geoip-cn",
           "geosite-cn"
         ],
@@ -293,20 +267,6 @@
       }
     ],
     "rule_set": [
-      {
-        "tag": "geosite-openai",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-google-gemini",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google-gemini.srs",
-        "download_detour": "direct"
-      },
       {
         "tag": "geosite-cn",
         "type": "remote",
