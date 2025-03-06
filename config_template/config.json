@@ -11,16 +11,23 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://ghproxy.cn/github.com/MetaCubeX/metacubexd/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct"
+      "access_control_allow_origin": [
+        "http://127.0.0.1",
+        "https://yacd.metacubex.one",
+        "https://metacubex.github.io/metacubexd",
+        "https://metacubexd.pages.dev",
+        "https://board.zash.run.place"
+      ]
     }
   },
   "dns": {
+    "strategy": "prefer_ipv4",
+    "independent_cache": true,
     "servers": [
       {
         "tag": "google",
-        "address": "https://8.8.8.8/dns-query"
+        "address": "https://8.8.8.8/dns-query",
+        "detour": "select"
       },
       {
         "tag": "local",
@@ -84,9 +91,7 @@
       "enabled": true,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
-    },
-    "strategy": "prefer_ipv4",
-    "independent_cache": true
+    }
   },
   "inbounds": [
     {
@@ -138,6 +143,125 @@
       "tag": "auto",
       "type": "urltest",
       "outbounds": [
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Github",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Google",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Microsoft",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "OpenAI",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Telegram",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Twitter",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag": "Youtube",
+      "type": "selector",
+      "outbounds": [
+        "select",
+        "all",
+        "auto",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct",
         "{all}"
       ]
     },
@@ -251,12 +375,59 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "anti-ad",
+        "clash_mode": "Rule",
+        "action": "reject"
+      },
+      {
+        "rule_set": "anti-ad",
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
         "clash_mode": "Direct",
         "outbound": "direct"
       },
       {
         "clash_mode": "Global",
         "outbound": "select"
+      },
+      {
+        "rule_set": "geosite-github",
+        "outbound": "Github"
+      },
+      {
+        "rule_set": [
+          "geoip-google",
+          "geosite-google"
+        ],
+        "outbound": "Google"
+      },
+      {
+        "rule_set": "geosite-microsoft",
+        "outbound": "Microsoft"
+      },
+      {
+        "rule_set": "geosite-openai",
+        "outbound": "OpenAI"
+      },
+      {
+        "rule_set": [
+          "geoip-telegram",
+          "geosite-telegram"
+        ],
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": [
+          "geoip-twitter",
+          "geosite-twitter"
+        ],
+        "outbound": "Twitter"
+      },
+      {
+        "rule_set": "geosite-youtube",
+        "outbound": "Youtube"
       },
       {
         "rule_set": [
@@ -268,25 +439,88 @@
     ],
     "rule_set": [
       {
+        "tag": "anti-ad",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://anti-ad.net/anti-ad-sing-box.srs"
+      },
+      {
+        "tag": "geosite-github",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs"
+      },
+      {
+        "tag": "geoip-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs"
+      },
+      {
+        "tag": "geosite-microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-microsoft.srs"
+      },
+      {
+        "tag": "geosite-openai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-openai.srs"
+      },
+      {
+        "tag": "geoip-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs"
+      },
+      {
+        "tag": "geosite-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-telegram.srs"
+      },
+      {
+        "tag": "geoip-twitter",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-twitter.srs"
+      },
+      {
+        "tag": "geosite-twitter",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-twitter.srs"
+      },
+      {
+        "tag": "geosite-youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-youtube.srs"
+      },
+      {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
-        "download_detour": "direct"
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
-        "download_detour": "direct"
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghproxy.cn/https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
-        "download_detour": "direct"
+        "url": "https://raw.github.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs"
       }
     ]
   }
