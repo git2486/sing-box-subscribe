@@ -20,6 +20,7 @@
     }
   },
   "dns": {
+    "strategy": "ipv4_only",
     "servers": [
       {
         "tag": "google",
